@@ -7,15 +7,15 @@ var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
 
-  // Your username
+  // username
   user: "root",
 
-  // Your password
+  // password
   password: "",
   database: "bamazonDB"
 });
 
-// validateInput makes sure that the user is supplying only positive integers for their inputs
+// validate the Inputs to make sure that the user is entering only positive integers
 function validateInput(value) {
 	var integer = Number.isInteger(parseFloat(value));
 	var sign = Math.sign(value);
@@ -27,9 +27,9 @@ function validateInput(value) {
 	}
 }
 
-// promptUserPurchase will prompt the user for the item/quantity they would like to purchase
+// this function will prompt the user for the item/quantity they would like to purchase
 function promptUserPurchase() {
-	// console.log('___ENTER promptUserPurchase___');
+	
 
 	// Prompt the user to select an item
 	inquirer.prompt([
@@ -50,7 +50,6 @@ function promptUserPurchase() {
 	])
 
 	.then(function(input) {
-		// console.log('Customer has selected: \n    item_id = '  + input.item_id + '\n    quantity = ' + input.quantity);
 
 		var item = input.item_id;
 		var quantity = input.quantity;
